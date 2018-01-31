@@ -1,4 +1,7 @@
 venv
+
 *.pyc
+
 staticfiles
+
 .env
