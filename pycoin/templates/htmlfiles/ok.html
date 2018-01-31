@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <title>PyCoin!</title>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+    <style>
+      body {
+        background-size: cover;
+      }
+      		@import url(https://fonts.googleapis.com/css?family=Varela);
+.login{
+color: white !important;
+
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Varela', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  min-height: 100%;
+  position: relative;
+  width:100%;
+	height:100%;
+	overflow:hidden;
+}
+label {
+  margin-bottom: 0;
+}
+
+a {
+  color: #e1e1e1;
+}
+
+a:focus,
+a:hover {
+  color: #008080;
+}
+
+.checkbox-inline+.checkbox-inline,
+.radio-inline+.radio-inline {
+  margin-top: 6px;
+}
+
+body.login {
+  background: rgba(255, 255, 255, 1);
+}
+
+.relative {
+  position: relative;
+}
+.switcher{
+  margin-bottom:70px;
+}
+ul.switcher li{
+	list-style-type: none;
+	width:50%;
+  position:absolute;
+  top:0;
+  color:white;
+}
+.first{
+  left:0;
+}
+.second{
+  right:0;
+}
+.login-container-wrapper {
+  max-width: 400px;
+  margin: 2% auto 5%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: rgba(57, 89, 116, 0.8);
+  position: relative;
+  box-shadow: 0px 30px 60px -5px #000;
+  background-image:url('http://www.planwallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg');
+  background-size:cover;
+  background-blend-mode:saturation;
+}
+.login-container-wrapper .logo,
+.login-container-wrapper .welcome {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.login-container-wrapper li {
+  text-align: center;
+  padding:0 15px;
+  background-color: #283443;
+  height:50px;
+  line-height:50px;
+  box-shadow: inset 0 -2px 0 0 #ccc;
+  cursor:pointer;
+}
+.login-container-wrapper li a{
+   color:#fff;
+}
+.login-container-wrapper li a:hover{
+  color:#ccc;
+  text-decoration:none;
+}
+
+.login-container-wrapper li a:active,
+.login-container-wrapper li a:focus{
+  color:#fff;
+  text-decoration:none;
+}
+.login-container-wrapper li.active{
+  background-color:transparent;
+  box-shadow:none;
+}
+.login-container-wrapper li.active a{
+  border-bottom:2px solid #fff;
+  padding-bottom:5px;
+}
+
+.login input:focus + .fa{
+  color:#25a08d;
+}
+.login-form .form-group {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.login-form i {
+  position: absolute;
+  top: 0;
+  left: 19px;
+  line-height:52px;
+  color: rgba(40, 52, 67, 1);
+  z-index:100;
+  font-size:16px;
+}
+
+.login-form .input-lg {
+  font-size: 16px;
+  height: 52px;
+  padding: 10px 25px;
+  border-radius: 0;
+}
+
+.login input[type="text"],
+.login input[type="password"],
+.login input:focus {
+  background-color: rgba(40, 52, 67, 0.75);
+  border: 0px solid #4a525f;
+  color: #eee;
+  border-left: 45px solid #93a5ab;
+  border-radius:40px;
+}
+
+.login input:focus {
+  border-left: 45px solid #eee;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: rgba(40, 52, 67, 0.75)!important;
+  background-image: none;
+  color: rgb(0, 0, 0);
+  border-color: #FAFFBD;
+}
+
+.login .checkbox label,
+.login .checkbox a {
+  color: #ddd;
+  vertical-align: top;
+}
+input[type="checkbox"]:checked + label::before,
+.checkbox-success input[type="radio"]:checked + label::before {
+    background-color: #25a08d !important;
+}
+.btn-success {
+  background-color: #25a08d;
+  background-image: none;
+  padding: 8px 50px;
+  margin-top:20px;
+  border-radius: 40px;
+  border: 1px solid #25a08d;
+  -webkit-transition: all ease 0.8s;
+  -moz-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+}
+
+.btn-success:focus,
+.btn-success:hover,
+.btn-success.active,
+.btn-success.active:hover,
+.btn-success:active:hover,
+.btn-success:active:focus,
+.btn-success:active {
+  background-color: #25a08d;
+  border-color: #25a08d;
+  box-shadow: 0px 5px 35px -5px #25a08d;
+  text-shadow:0 0 8px #fff;
+  color: #FFF;
+  outline:none;
+}
+.myAlert-top{
+    position: fixed;
+    top: 5px;
+    left:2%;
+    width: 96%;
+}
+
+.myAlert-bottom{
+    position: fixed;
+    bottom: 5px;
+    left:2%;
+    width: 96%;
+}
+
+div.fullscreen {
+  position: absolute;
+  width:100%;
+  height:960px;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}
+
+.alert{
+    display: none;
+}
+
+    </style>
+
+        <script>
+             $("#wallet").click(function() {
+        window.location.href = "/createnewwallet"
+      });
+        </script>
+        <script>
+
+      $(document).ready(function(){
+
+	$('ul.switcher li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('li').removeClass('active');
+    $('div.tab-pane').removeClass('active');
+
+		$(this).addClass('active');
+		$("#"+tab_id).addClass('active');
+	})
+
+})
+
+        </script>
+
+
+  </head>
+  <body background="https://blockstreet.info/uploads/news/ecd0351b-e52d-4e47-b3a3-c6f2149aa138_9083.jpeg" onload="myAlertBottom()">
+      <div class="container">
+        <br><br> <br>
+		<div class="login-container-wrapper clearfix">
+			<ul class="switcher clearfix">
+				<li class="first logo active" data-tab="login">
+						<a>Wallet</a>
+				</li>
+				<li class="second logo" data-tab="sign_up">
+						<a>Logout! </a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="login">
+
+<div class="content login">
+
+  <div id="logo"> </div>
+
+<center><p style="font-size:10px;">Wellcome<br> {{wallet_id}}</p></center>
+  {% load humanize %}
+  <center><b><p>Balance {{balance|intcomma}} PYC!</p></b></center>
+
+<input type="text" id="pubkey" placeholder="To address" class="form-control myf">
+    <br>
+<input type="text" id="amount" placeholder="Amount to Send" class="form-control myf">
+
+<br>
+    <center><button type="button" id="okey" value="Send" class="btn btn-success">Send</button> </center>
+<br>
+ <center><p><a href="/logout"  class="btn btn-success btn-lg btn-block linkify">Logout.</a></p></center>
+
+
+</div>
+
+
+<script>
+
+$("#okey").click(function() {
+
+  var spubkey = "{{pubkey|escapejs}}";
+  var prikey =  "{{prikey|escapejs}}";
+  var swid =    "{{wallet_id|escapejs}}";
+  var pubkey =  $('#pubkey').val();
+  var amount =  $('#amount').val();
+
+
+      $.ajax({
+        type:'POST',
+        url:'/sendcloudcoin/',
+        data:{
+          spubkey : spubkey,
+          sprikey : prikey,
+          swid : swid,
+          pubkey: pubkey,
+  				amount:parseInt(amount)},
+        success:function(msg){
+          if(msg["response"] == "fail"){
+            alert("Fail")
+          }else{
+            window.location.reload();
+          }
+
+          var myJSON = JSON.stringify(msg);
+          console.log(myJSON);
+
+
+
+        },
+      });
+
+});
+
+
+</script>
+
+				</div>
+				<div class="tab-pane" id="sign_up">
+
+							<button class="btn btn-success btn-lg btn-block"  ><a href="/logout" id="wallet">Logout!</a></button>
+
+				</div>
+			</div>
+	</div>
+
+          <div class="myAlert-bottom alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Warning!</strong> Send amount function is not working right now. It will be updated soon.
+</div>
+
+          <script>
+              function myAlertBottom(){
+  $(".myAlert-bottom").show();
+  setTimeout(function(){
+    $(".myAlert-bottom").hide();
+  }, 10000);
+}
+
+          </script>
+     </body>
+</html>
+
+
+
+
