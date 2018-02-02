@@ -49,17 +49,41 @@ def logout(request):
     request.session.clear()
     return HttpResponseRedirect('/')
 
-
+# @author "Hüseyin Terkir"
 def createnewwallet(request):
     data = {}
-    datas = {}
-    qey = instantwallet()
-    data['private_key'] = base64.b64encode(qey[0]).decode('utf-8')
-    data['public_key'] = base64.b64encode(qey[1]).decode('utf-8')
-    data['wallet_id'] = qey[2]
-    datas['wallet'] = data
-    return render(request, 'wallet.html', {'walletinfo':datas})
+    my_key = RSA.generate(1024)
+    public_key = my_key.publickey().exportKey('PEM')
+    private_key = my_key.exportKey('PEM')
+    wallet_id = SHA256.new(public_key).hexdigest()
+    data["public_key"] = base64.b64encode(public_key).decode('utf-8')
+    data["private_key"] = base64.b64encode(private_key).decode('utf-8')
+    data["wallet_id"] = wallet_id
 
+    print(public_key)
+    print("---------------")
+    print(private_key)
+    print("---------------")
+    print(wallet_id)
+
+    return render(request, 'wallet.html', {'walletinfo': data})
+
+def miner(first_timestamp, senderwalletid, receiverhex,amount):
+    data = {}
+    for nonce in range(0,10000000):
+        data['senderpublickey'] = str(senderwalletid)
+        data['receiverhex'] = str(receiverhex)
+        data['previous_hash'] =  str(transaction.objects.all().last().blockhash)
+        data['amount'] = str(amount) #4
+        data['timestamp'] =  str(first_timestamp)
+        data["nonce"] = str(nonce)
+        data = collections.OrderedDict(sorted(data.items()))
+        datashash  = hashlib.sha256(json.dumps(data).encode('utf-8')).hexdigest()
+        last2char = datashash[-2:]
+        if last2char == "01":
+            return(nonce)
+        else:
+            continue
 
 
 @csrf_exempt
