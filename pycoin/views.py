@@ -185,3 +185,53 @@ def sendpycoin(request):
             newtrans.save()
 
             return render(request, 'ok.html', locals())
+
+
+
+def ws(request):
+
+    transactions = transaction.objects.all()[::-1][0:8]
+    return render(request, "ws.html", locals())
+
+def gettransaction(request, tid):
+        data = {}
+        trr = transaction.objects.get(id=int(tid))
+        data = {"sender" : trr.sender,
+                     "senderhexdigest": trr.senderhexdigest,
+                     "receiver": trr.receiver,
+                     "receiverhexdigest": trr.receiverhexdigest,
+                     "prevblockhash": trr.prevblockhash,
+                     "blockhash": trr.blockhash,
+                     "amount": trr.amount,
+                     "nonce": trr.nonce,
+                     "first_timestamp": trr.first_timestamp,
+                     "saved_timestamp": trr.saved_timestamp.strftime("%Y-%m-%d"),
+                     "P2PKH": trr.P2PKH,
+                     "verification": trr.verification}
+        return HttpResponse(json.dumps(data), content_type = "application/json")
+
+
+
+
+def alltransactions(request):
+    data = {}
+    txs = []
+    transactions = transaction.objects.all()
+    for trr in transactions:
+        gettrs = {"sender" : trr.sender,
+                     "senderhexdigest": trr.senderhexdigest,
+                     "receiver": trr.receiver,
+                     "receiverhexdigest": trr.receiverhexdigest,
+                     "prevblockhash": trr.prevblockhash,
+                     "blockhash": trr.blockhash,
+                     "amount": trr.amount,
+                     "nonce": trr.nonce,
+                     "first_timestamp": trr.first_timestamp,
+                     "saved_timestamp": trr.saved_timestamp.strftime("%Y-%m-%d"),
+                     "P2PKH": trr.P2PKH,
+                     "verification": trr.verification,
+                     "id":trr.id}
+        txs.append(gettrs)
+
+
+        return render(request, 'ws.html', {'transactioninfo': data['alltestsarecomplated']})

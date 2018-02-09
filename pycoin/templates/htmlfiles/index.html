@@ -240,8 +240,15 @@ input[type="checkbox"]:checked + label::before,
 <br>
 <center><input type="button" id="okey" value="Check wallet" class="btn btn-success btn-lg btn-block"></center>
 
+<center><a class="btn btn-success btn-lg btn-block" href="/transactions">Transactions</a></center>
+
+
+
 </div>
 <script>
+
+
+
 
 $("#okey").click(function() {
   var pubkey =  $('#pubkey').val();
@@ -293,11 +300,15 @@ replaceAll = function(string, omit, place, prevstring) {
 			</div>
 	</div>
 
+        
         <script>
              $("#wallet").click(function() {
         window.location.href = "/createnewwallet"
       });
         </script>
+        
+
+
         <script>
 
       $(document).ready(function(){
