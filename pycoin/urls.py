@@ -11,7 +11,10 @@ urlpatterns = [
     url(r'^login', pycoin.views.login),
     url(r'^logout', pycoin.views.logout),
     url(r'^createnewwallet/', pycoin.views.createnewwallet),
+    url(r'^transactions', pycoin.views.ws),
     url(r'^checkwallet/', pycoin.views.checkwallet),
     url(r'^sendpycoin', pycoin.views.sendpycoin),
+
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
